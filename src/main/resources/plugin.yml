@@ -1,0 +1,4 @@
+name: antispam
+version: '${project.version}'
+main: org.anti.antispam.Antispam
+api-version: '1.20'

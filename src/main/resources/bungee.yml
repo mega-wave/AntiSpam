@@ -1,4 +1,4 @@
 name: antispam
-main: megawave.antispam.BukkitAntispam
+main: megawave.antispam.BungeeAntispam
 version: '${project.version}'
 author: megawave

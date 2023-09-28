@@ -1,0 +1,1006 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.anti</groupId>\r\n    <artifactId>antispam</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n    <packaging>jar</packaging>\r\n\r\n    <name>antispam</name>\r\n\r\n    <properties>\r\n        <java.version>1.8</java.version>\r\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\r\n    </properties>\r\n\r\n    <build>\r\n        <plugins>\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-compiler-plugin</artifactId>\r\n                <version>3.8.1</version>\r\n                <configuration>\r\n                    <source>${java.version}</source>\r\n                    <target>${java.version}</target>\r\n                </configuration>\r\n            </plugin>\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-shade-plugin</artifactId>\r\n                <version>3.2.4</version>\r\n                <executions>\r\n                    <execution>\r\n                        <phase>package</phase>\r\n                        <goals>\r\n                            <goal>shade</goal>\r\n                        </goals>\r\n                        <configuration>\r\n                            <createDependencyReducedPom>false</createDependencyReducedPom>\r\n                        </configuration>\r\n                    </execution>\r\n                </executions>\r\n            </plugin>\r\n        </plugins>\r\n        <resources>\r\n            <resource>\r\n                <directory>src/main/resources</directory>\r\n                <filtering>true</filtering>\r\n            </resource>\r\n        </resources>\r\n    </build>\r\n\r\n    <repositories>\r\n        <repository>\r\n            <id>papermc-repo</id>\r\n            <url>https://repo.papermc.io/repository/maven-public/</url>\r\n        </repository>\r\n        <repository>\r\n            <id>sonatype</id>\r\n            <url>https://oss.sonatype.org/content/groups/public/</url>\r\n        </repository>\r\n    </repositories>\r\n\r\n    <dependencies>\r\n        <dependency>\r\n            <groupId>io.papermc.paper</groupId>\r\n            <artifactId>paper-api</artifactId>\r\n            <version>1.20.1-R0.1-SNAPSHOT</version>\r\n            <scope>provided</scope>\r\n        </dependency>\r\n    </dependencies>\r\n</project>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	(revision 62d5b9c798bb8aaafa4ed81b7a756e095aede2aa)
++++ b/pom.xml	(date 1695905638144)
+@@ -4,12 +4,12 @@
+          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+     <modelVersion>4.0.0</modelVersion>
+ 
+-    <groupId>org.anti</groupId>
++    <groupId>megawave</groupId>
+     <artifactId>antispam</artifactId>
+-    <version>1.0-SNAPSHOT</version>
++    <version>1.1</version>
+     <packaging>jar</packaging>
+ 
+-    <name>antispam</name>
++    <name>megawave.antispam</name>
+ 
+     <properties>
+         <java.version>1.8</java.version>
+@@ -47,27 +47,30 @@
+         <resources>
+             <resource>
+                 <directory>src/main/resources</directory>
+-                <filtering>true</filtering>
+             </resource>
+         </resources>
+     </build>
+ 
+     <repositories>
+         <repository>
+-            <id>papermc-repo</id>
+-            <url>https://repo.papermc.io/repository/maven-public/</url>
+-        </repository>
+-        <repository>
+-            <id>sonatype</id>
+-            <url>https://oss.sonatype.org/content/groups/public/</url>
++            <id>spigot-repo</id>
++            <url>https://hub.spigotmc.org/nexus/content/repositories/public/</url>
+         </repository>
+     </repositories>
+ 
+     <dependencies>
+         <dependency>
+-            <groupId>io.papermc.paper</groupId>
+-            <artifactId>paper-api</artifactId>
+-            <version>1.20.1-R0.1-SNAPSHOT</version>
++            <groupId>org.bukkit</groupId>
++            <artifactId>bukkit</artifactId>
++            <version>1.8.8-R0.1-SNAPSHOT</version>
++            <type>jar</type>
++            <scope>provided</scope>
++        </dependency>
++        <dependency>
++            <groupId>net.md-5</groupId>
++            <artifactId>bungeecord-api</artifactId>
++            <version>1.8-SNAPSHOT</version>
++            <type>jar</type>
+             <scope>provided</scope>
+         </dependency>
+     </dependencies>
+Index: antispam.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/antispam.iml b/antispam.iml
+deleted file mode 100644
+--- a/antispam.iml	(revision 62d5b9c798bb8aaafa4ed81b7a756e095aede2aa)
++++ /dev/null	(revision 62d5b9c798bb8aaafa4ed81b7a756e095aede2aa)
+@@ -1,13 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module version="4">
+-  <component name="FacetManager">
+-    <facet type="minecraft" name="Minecraft">
+-      <configuration>
+-        <autoDetectTypes>
+-          <platformType>PAPER</platformType>
+-          <platformType>ADVENTURE</platformType>
+-        </autoDetectTypes>
+-      </configuration>
+-    </facet>
+-  </component>
+-</module>
+\ No newline at end of file
+Index: README.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.md b/README.md
+deleted file mode 100644
+--- a/README.md	(revision 62d5b9c798bb8aaafa4ed81b7a756e095aede2aa)
++++ /dev/null	(revision 62d5b9c798bb8aaafa4ed81b7a756e095aede2aa)
+@@ -1,3 +0,0 @@
+-# AntiSpam
+-コサイン類似率を使用したantispamです。minecraftのpluginです。
+-※このpluginは1.20.1でしか動作しません
+Index: src/main/java/org/anti/antispam/Antispam.java
+===================================================================
+diff --git a/src/main/java/org/anti/antispam/Antispam.java b/src/main/java/org/anti/antispam/Antispam.java
+deleted file mode 100644
+--- a/src/main/java/org/anti/antispam/Antispam.java	(revision 62d5b9c798bb8aaafa4ed81b7a756e095aede2aa)
++++ /dev/null	(revision 62d5b9c798bb8aaafa4ed81b7a756e095aede2aa)
+@@ -1,117 +0,0 @@
+-package org.anti.antispam;
+-
+-import org.bukkit.ChatColor;
+-import org.bukkit.entity.Player;
+-import org.bukkit.event.EventHandler;
+-import org.bukkit.event.Listener;
+-import org.bukkit.event.player.AsyncPlayerChatEvent;
+-import org.bukkit.plugin.java.JavaPlugin;
+-
+-import java.util.*;
+-
+-public final class Antispam extends JavaPlugin implements Listener {
+-    private final Map<UUID, List<String>> playerMessages = new HashMap<>();
+-    private final Map<UUID, Long> playerMessageBlockEndTime = new HashMap<>();
+-    private final Map<UUID, Long> playerLastMessageTime = new HashMap<>();
+-    private final long rateLimitInterval = 500L;
+-
+-    @Override
+-    public void onEnable() {
+-        // Plugin startup logic
+-        getServer().getPluginManager().registerEvents(this, this);
+-    }
+-
+-    @Override
+-    public void onDisable() {
+-        // Plugin shutdown logic
+-    }
+-
+-    @EventHandler
+-    public void onChat(AsyncPlayerChatEvent e) {
+-        Player player = e.getPlayer();
+-        UUID playerId = player.getUniqueId();
+-
+-        List<String> lastMessages = playerMessages.getOrDefault(playerId, new ArrayList<>());
+-
+-        if (playerMessageBlockEndTime.getOrDefault(playerId, 0L) > System.currentTimeMillis()) {
+-            player.sendMessage(ChatColor.RED + "チャットがブロックされています。");
+-            getLogger().info(playerId+" チャットがブロックされています。");
+-            e.setCancelled(true);
+-            return;
+-        }
+-
+-        long currentTime = System.currentTimeMillis();
+-        if (playerLastMessageTime.containsKey(playerId) &&
+-                currentTime - playerLastMessageTime.get(playerId) < rateLimitInterval) {
+-            player.sendMessage(ChatColor.RED + "メッセージを送信する速度が速すぎます。");
+-            getLogger().info(playerId+" メッセージを送信する速度が速すぎます。");
+-            e.setCancelled(true);
+-            return;
+-        }
+-
+-        boolean similarMessages = false;
+-        for (String message : lastMessages) {
+-            double similarity = calculateSimilarity(message, e.getMessage());
+-            if (similarity > 85.0) {
+-                similarMessages = true;
+-                break;
+-            }
+-        }
+-
+-        if (similarMessages) {
+-            player.sendMessage(ChatColor.RED + "同じメッセージを連続して送信しないでください。2秒間ブロックされます。");
+-            getLogger().info(playerId+" 同じメッセージを連続して送信しないでください。2秒間ブロックされます。");
+-            e.setCancelled(true);
+-            playerMessageBlockEndTime.put(playerId, currentTime + 2000L);
+-            return;
+-        }
+-
+-        if (lastMessages.size() >= 4) {
+-            lastMessages.remove(0);
+-        }
+-        lastMessages.add(e.getMessage());
+-        playerMessages.put(playerId, lastMessages);
+-
+-        playerLastMessageTime.put(playerId, currentTime);
+-    }
+-
+-    public static double calculateSimilarity(String s1, String s2) {
+-        s1 = s1.toLowerCase();
+-        s2 = s2.toLowerCase();
+-
+-        int lenS1 = s1.length();
+-        int lenS2 = s2.length();
+-
+-        if (lenS1 == 0 || lenS2 == 0) {
+-            return 0.0;
+-        }
+-
+-        int[][] matrix = new int[lenS1 + 1][lenS2 + 1];
+-        for (int i = 0; i <= lenS1; i++) {
+-            matrix[i][0] = i;
+-        }
+-        for (int j = 0; j <= lenS2; j++) {
+-            matrix[0][j] = j;
+-        }
+-        for (int i = 1; i <= lenS1; i++) {
+-            for (int j = 1; j <= lenS2; j++) {
+-                int cost = (s1.charAt(i - 1) != s2.charAt(j - 1)) ? 1 : 0;
+-                matrix[i][j] = min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1] + cost);
+-            }
+-        }
+-
+-        double maxLength = Math.max(lenS1, lenS2);
+-        double distance = matrix[lenS1][lenS2];
+-        double similarity = (1.0 - distance / maxLength) * 100.0;
+-        return similarity;
+-    }
+-
+-    public static int min(int a, int b, int c) {
+-        if (a < b && a < c) {
+-            return a;
+-        } else if (b < c) {
+-            return b;
+-        }
+-        return c;
+-    }
+-}
+Index: src/main/java/megawave/antispam/Utility.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/Utility.java b/src/main/java/megawave/antispam/Utility.java
+new file mode 100644
+--- /dev/null	(date 1695904739163)
++++ b/src/main/java/megawave/antispam/Utility.java	(date 1695904739163)
+@@ -0,0 +1,56 @@
++package megawave.antispam;
++
++import java.io.IOException;
++import java.io.InputStream;
++import java.io.OutputStream;
++
++public class Utility {
++    public static double calculateSimilarity(String s1, String s2) {
++        s1 = s1.toLowerCase();
++        s2 = s2.toLowerCase();
++
++        int lenS1 = s1.length();
++        int lenS2 = s2.length();
++
++        if (lenS1 == 0 || lenS2 == 0) {
++            return 0.0;
++        }
++
++        int[][] matrix = new int[lenS1 + 1][lenS2 + 1];
++        for (int i = 0; i <= lenS1; i++) {
++            matrix[i][0] = i;
++        }
++        for (int j = 0; j <= lenS2; j++) {
++            matrix[0][j] = j;
++        }
++        for (int i = 1; i <= lenS1; i++) {
++            for (int j = 1; j <= lenS2; j++) {
++                int cost = (s1.charAt(i - 1) != s2.charAt(j - 1)) ? 1 : 0;
++                matrix[i][j] = min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1] + cost);
++            }
++        }
++
++        double maxLength = Math.max(lenS1, lenS2);
++        double distance = matrix[lenS1][lenS2];
++        return (1.0 - distance / maxLength) * 100.0;
++    }
++
++    public static void write(InputStream is, OutputStream os) throws IOException {
++        byte[] buffer = new byte[1024];
++        int len;
++        while ((len = is.read(buffer)) > -1) {
++            os.write(buffer, 0, len);
++        }
++
++    }
++
++    private static int min(int a, int b, int c) {
++        if (a < b && a < c) {
++            return a;
++        } else if (b < c) {
++            return b;
++        }
++        return c;
++    }
++
++}
+Index: src/main/java/megawave/antispam/command/Command.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/command/Command.java b/src/main/java/megawave/antispam/command/Command.java
+new file mode 100644
+--- /dev/null	(date 1695868038893)
++++ b/src/main/java/megawave/antispam/command/Command.java	(date 1695868038893)
+@@ -0,0 +1,11 @@
++package megawave.antispam.command;
++
++import megawave.antispam.player.APlayer;
++
++public interface Command {
++
++    String getName();
++
++    boolean execute(APlayer player, String[] args);
++
++}
+Index: src/main/java/megawave/antispam/event/BungeeForwardListener.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/event/BungeeForwardListener.java b/src/main/java/megawave/antispam/event/BungeeForwardListener.java
+new file mode 100644
+--- /dev/null	(date 1695902642330)
++++ b/src/main/java/megawave/antispam/event/BungeeForwardListener.java	(date 1695902642330)
+@@ -0,0 +1,24 @@
++package megawave.antispam.event;
++
++import megawave.antispam.player.AP;
++import net.md_5.bungee.api.connection.ProxiedPlayer;
++import net.md_5.bungee.api.event.ChatEvent;
++import net.md_5.bungee.api.plugin.Listener;
++import net.md_5.bungee.event.EventHandler;
++
++public class BungeeForwardListener extends MessageListener implements Listener {
++
++    public BungeeForwardListener(long rateLimitInterval, long additionalPeriod, double similarity_level) {
++        super(rateLimitInterval, additionalPeriod, similarity_level);
++    }
++
++    @EventHandler
++    public void MessageEvent(ChatEvent e) {
++        if (e.getSender() instanceof ProxiedPlayer) {
++            check(AP.transfer(((ProxiedPlayer) e.getSender()).getUniqueId()), e.getMessage());
++            e.setCancelled(cancelled);
++        }
++
++    }
++
++}
+Index: src/main/java/megawave/antispam/event/Event.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/event/Event.java b/src/main/java/megawave/antispam/event/Event.java
+new file mode 100644
+--- /dev/null	(date 1695868038562)
++++ b/src/main/java/megawave/antispam/event/Event.java	(date 1695868038562)
+@@ -0,0 +1,7 @@
++package megawave.antispam.event;
++
++public interface Event {
++
++    void setCancelled(boolean b);
++
++}
+Index: src/main/java/megawave/antispam/event/BukkitForwardListener.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/event/BukkitForwardListener.java b/src/main/java/megawave/antispam/event/BukkitForwardListener.java
+new file mode 100644
+--- /dev/null	(date 1695904739115)
++++ b/src/main/java/megawave/antispam/event/BukkitForwardListener.java	(date 1695904739115)
+@@ -0,0 +1,21 @@
++package megawave.antispam.event;
++
++import megawave.antispam.player.AP;
++import org.bukkit.event.EventHandler;
++import org.bukkit.event.Listener;
++import org.bukkit.event.player.AsyncPlayerChatEvent;
++
++public class BukkitForwardListener extends MessageListener implements Listener {
++
++    public BukkitForwardListener(long rateLimitInterval, long additionalPeriod, double similarity_level) {
++        super(rateLimitInterval, additionalPeriod, similarity_level);
++    }
++
++    @EventHandler
++    public void MessageEvent(AsyncPlayerChatEvent e) {
++        check(AP.transfer(e.getPlayer().getUniqueId()), e.getMessage());
++        e.setCancelled(cancelled);
++
++    }
++
++}
+Index: src/main/java/megawave/antispam/event/MessageListener.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/event/MessageListener.java b/src/main/java/megawave/antispam/event/MessageListener.java
+new file mode 100644
+--- /dev/null	(date 1695904739193)
++++ b/src/main/java/megawave/antispam/event/MessageListener.java	(date 1695904739193)
+@@ -0,0 +1,87 @@
++package megawave.antispam.event;
++
++import megawave.antispam.Antispam;
++import megawave.antispam.Utility;
++import megawave.antispam.Wrap;
++import megawave.antispam.player.APlayer;
++
++import java.util.ArrayList;
++import java.util.List;
++import java.util.Map;
++import java.util.UUID;
++
++public abstract class MessageListener implements Event {
++    boolean cancelled;
++
++    private final long rateLimitInterval;
++    private final long additionalPeriod;
++    private final double similarity_level;
++
++    public MessageListener(long rateLimitInterval, long additionalPeriod, double similarity_level) {
++        this.rateLimitInterval = rateLimitInterval;
++        this.additionalPeriod = additionalPeriod;
++        this.similarity_level = similarity_level;
++
++    }
++
++    public void check(APlayer player, String message) {
++        UUID playerId = player.getUniqueId();
++        String playerName = player.getName();
++
++        Map<UUID, Wrap<List<String>, Long, Long>> map = Antispam.playerInfo;
++        if (map.get(playerId) == null) {
++            map.put(playerId, new Wrap<>(new ArrayList<>(), 0L, -1L));
++        }
++
++        Wrap<List<String>, Long, Long> wrap = map.get(playerId);
++
++        List<String> lastMessages = wrap.getX();
++        Long playerLastMessageTime = wrap.getY();
++        Long playerMessageBlockEndTime = wrap.getZ();
++
++        long currentTime = System.currentTimeMillis();
++
++        if (playerMessageBlockEndTime > currentTime) {
++            player.sendMessage("§4 チャットがブロックされています。");
++            this.setCancelled(true);
++            return;
++        }
++
++        if (playerLastMessageTime != null &&
++                currentTime - playerLastMessageTime < rateLimitInterval) {
++            player.sendMessage("§4 メッセージを送信する速度が速すぎます。");
++            System.out.printf("%s(%s)はメッセージを連投したため%d秒間投稿をブロックします。%n", playerName, playerId, rateLimitInterval / 1000);
++            this.setCancelled(true);
++            return;
++        }
++
++        boolean similarMessages = false;
++        for (String str : lastMessages) {
++            double similarity = Utility.calculateSimilarity(str, message);
++            if (similarity > similarity_level) {
++                similarMessages = true;
++                break;
++            }
++        }
++
++        if (similarMessages) {
++            player.sendMessage(String.format("§4 同じメッセージを連続して送信しないでください。%d秒間ブロックされます。", additionalPeriod / 1000));
++            System.out.printf("%s(%s)はおなじメッセージを投稿したため%d秒間投稿をブロックします。", playerName, playerId, additionalPeriod / 1000);
++            this.setCancelled(true);
++            map.put(playerId, new Wrap<>(lastMessages, currentTime + additionalPeriod, playerMessageBlockEndTime));
++            return;
++        }
++
++        if (lastMessages.size() >= 4) {
++            lastMessages.remove(0);
++        }
++        lastMessages.add(message);
++        map.put(playerId, new Wrap<>(lastMessages, currentTime, playerMessageBlockEndTime));
++
++    }
++
++    @Override
++    public void setCancelled(boolean b) {
++        this.cancelled = b;
++    }
++}
+Index: src/main/java/megawave/antispam/configuration/DefaultConfiguration.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/configuration/DefaultConfiguration.java b/src/main/java/megawave/antispam/configuration/DefaultConfiguration.java
+new file mode 100644
+--- /dev/null	(date 1695864674802)
++++ b/src/main/java/megawave/antispam/configuration/DefaultConfiguration.java	(date 1695864674802)
+@@ -0,0 +1,26 @@
++package megawave.antispam.configuration;
++
++import org.yaml.snakeyaml.Yaml;
++
++import java.io.IOException;
++import java.nio.file.Files;
++import java.nio.file.Path;
++
++public abstract class DefaultConfiguration<T> {
++    final Path path;
++    protected T type;
++    final Class<T> tClass;
++
++    protected DefaultConfiguration(Path path, Class<T> tClass) throws IOException {
++        this.path = path;
++        this.tClass =  tClass;
++        type = load();
++
++    }
++
++    public T load() throws IOException {
++        return new Yaml().loadAs(Files.newInputStream(path), tClass);
++
++    }
++
++}
+Index: src/main/java/megawave/antispam/configuration/Configuration.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/configuration/Configuration.java b/src/main/java/megawave/antispam/configuration/Configuration.java
+new file mode 100644
+--- /dev/null	(date 1695864674833)
++++ b/src/main/java/megawave/antispam/configuration/Configuration.java	(date 1695864674833)
+@@ -0,0 +1,21 @@
++package megawave.antispam.configuration;
++
++import java.util.List;
++
++public interface Configuration {
++
++    Object get(String path);
++
++    String getString(String path);
++
++    Integer getInt(String path);
++
++    Long getLong(String path);
++
++    Double getDouble(String path);
++
++    List<Object> getList(String path);
++
++    List<String> getListString(String path);
++
++}
+\ No newline at end of file
+Index: src/main/java/megawave/antispam/player/ConsoleAP.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/player/ConsoleAP.java b/src/main/java/megawave/antispam/player/ConsoleAP.java
+new file mode 100644
+--- /dev/null	(date 1695893446178)
++++ b/src/main/java/megawave/antispam/player/ConsoleAP.java	(date 1695893446178)
+@@ -0,0 +1,5 @@
++package megawave.antispam.player;
++
++public class ConsoleAP /*implements AP*/ {
++    //TODO;
++}
+Index: README.MD
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/README.MD b/README.MD
+new file mode 100644
+--- /dev/null	(date 1695905814940)
++++ b/README.MD	(date 1695905814940)
+@@ -0,0 +1,15 @@
++# *Magawave / Antispam v1.1*
++
++---
++__AntiSpam plugin for BUKKIT & BUNGEE__
++
++*Bukkit 1.8.8 ~ Latest*  
++*Bungee 1.8.x ~ Latest*
++
++_帰ったらパスタにしよう_  
++~ ~ ~ ~ ~ ~ ~ ~
++
++*注意: 基礎となる技術はアレフ氏の提供です。
++
++このプラグインはBukkit, Bungee上で稼働する連投対策のプラグインです。
++コンフィグなども実装されていてその多機能も追加予定です。
+Index: src/main/resources/bungee.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/bungee.yml b/src/main/resources/bungee.yml
+new file mode 100644
+--- /dev/null	(date 1695896296711)
++++ b/src/main/resources/bungee.yml	(date 1695896296711)
+@@ -0,0 +1,4 @@
++name: antispam
++main: megawave.antispam.BungeeAntispam
++version: '${project.version}'
++author: megawave
+\ No newline at end of file
+Index: src/main/resources/config.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/config.yml b/src/main/resources/config.yml
+new file mode 100644
+--- /dev/null	(date 1695898875466)
++++ b/src/main/resources/config.yml	(date 1695898875466)
+@@ -0,0 +1,3 @@
++rateLimitInterval: 500
++additionalPeriod: 2000
++similarity_level: 0.85
+\ No newline at end of file
+Index: src/main/resources/plugin.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>name: antispam\r\nversion: '${project.version}'\r\nmain: org.anti.antispam.Antispam\r\napi-version: '1.20'\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/plugin.yml b/src/main/resources/plugin.yml
+--- a/src/main/resources/plugin.yml	(revision 62d5b9c798bb8aaafa4ed81b7a756e095aede2aa)
++++ b/src/main/resources/plugin.yml	(date 1695896296689)
+@@ -1,4 +1,4 @@
+ name: antispam
++main: megawave.antispam.BukkitAntispam
+ version: '${project.version}'
+-main: org.anti.antispam.Antispam
+-api-version: '1.20'
++author: megawave
+\ No newline at end of file
+Index: src/main/java/megawave/antispam/player/BukkitAPlayer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/player/BukkitAPlayer.java b/src/main/java/megawave/antispam/player/BukkitAPlayer.java
+new file mode 100644
+--- /dev/null	(date 1695896366001)
++++ b/src/main/java/megawave/antispam/player/BukkitAPlayer.java	(date 1695896366001)
+@@ -0,0 +1,17 @@
++package megawave.antispam.player;
++
++import megawave.antispam.BukkitAntispam;
++import org.bukkit.entity.Player;
++
++import java.util.UUID;
++
++public abstract class BukkitAPlayer extends APlayer {
++
++    public final Player player;
++
++    public BukkitAPlayer(UUID uuid) {
++        super(uuid);
++        player = BukkitAntispam.getInstance().getServer().getPlayer(uuid);
++    }
++
++}
+Index: src/main/java/megawave/antispam/player/APlayer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/player/APlayer.java b/src/main/java/megawave/antispam/player/APlayer.java
+new file mode 100644
+--- /dev/null	(date 1695904739214)
++++ b/src/main/java/megawave/antispam/player/APlayer.java	(date 1695904739214)
+@@ -0,0 +1,28 @@
++package megawave.antispam.player;
++
++import java.util.UUID;
++
++public abstract class APlayer implements AP {
++
++    public UUID uuid;
++
++    public APlayer(UUID uuid) {
++        this.uuid = uuid;
++
++    }
++
++    public abstract String getName();
++
++    public UUID getUniqueId() {
++        return uuid;
++
++    }
++
++    public void kick() {
++        kick("");
++
++    }
++
++    public abstract void kick(String reason);
++
++}
+Index: src/main/java/megawave/antispam/player/BungeeAPlayerImp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/player/BungeeAPlayerImp.java b/src/main/java/megawave/antispam/player/BungeeAPlayerImp.java
+new file mode 100644
+--- /dev/null	(date 1695904739229)
++++ b/src/main/java/megawave/antispam/player/BungeeAPlayerImp.java	(date 1695904739229)
+@@ -0,0 +1,32 @@
++package megawave.antispam.player;
++
++import java.util.UUID;
++
++public class BungeeAPlayerImp extends BungeeAPlayer {
++    public BungeeAPlayerImp(UUID uuid) {
++        super(uuid);
++
++    }
++
++    @Override
++    public void sendMessage(String message) {
++        player.sendMessage(message);
++
++    }
++
++    @Override
++    public String getName() {
++        return player.getName();
++    }
++
++    @Override
++    public void kick(String reason) {
++        player.disconnect(reason);
++
++    }
++
++    public static BungeeAPlayer getBungeeAPlayer(UUID uuid) {
++        return new BungeeAPlayerImp((uuid));
++    }
++
++}
+Index: src/main/java/megawave/antispam/player/BungeeAPlayer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/player/BungeeAPlayer.java b/src/main/java/megawave/antispam/player/BungeeAPlayer.java
+new file mode 100644
+--- /dev/null	(date 1695890645916)
++++ b/src/main/java/megawave/antispam/player/BungeeAPlayer.java	(date 1695890645916)
+@@ -0,0 +1,17 @@
++package megawave.antispam.player;
++
++import megawave.antispam.BungeeAntispam;
++import net.md_5.bungee.api.connection.ProxiedPlayer;
++
++import java.util.UUID;
++
++public abstract class BungeeAPlayer extends APlayer {
++
++    public final ProxiedPlayer player;
++
++    protected BungeeAPlayer(UUID uuid) {
++        super(uuid);
++        player = BungeeAntispam.getInstance().getProxy().getPlayer(uuid);
++
++    }
++}
+Index: src/main/java/megawave/antispam/BukkitAntispam.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/BukkitAntispam.java b/src/main/java/megawave/antispam/BukkitAntispam.java
+new file mode 100644
+--- /dev/null	(date 1695899674364)
++++ b/src/main/java/megawave/antispam/BukkitAntispam.java	(date 1695899674364)
+@@ -0,0 +1,41 @@
++package megawave.antispam;
++
++import megawave.antispam.configuration.Configuration;
++import megawave.antispam.event.BukkitForwardListener;
++import org.bukkit.plugin.java.JavaPlugin;
++
++import java.io.IOException;
++import java.nio.file.Paths;
++
++public class BukkitAntispam extends JavaPlugin {
++
++    public static JavaPlugin instance;
++
++    @Override
++    public void onEnable() {
++        super.onEnable();
++        getLogger().info("AntiSpam v1.0 by liboot");
++        getLogger().info("プラグインを初期化中..");
++        Antispam ap = new Antispam(Antispam.BUKKIT);
++        Configuration conf = null;
++        try {
++            conf = ap.config_load(Paths.get("./plugins/AntiSpam/plugin.yml"));
++        } catch (IOException e) {
++            getLogger().severe(e.getMessage());
++        }
++
++        getServer().getPluginManager().registerEvents(
++                new BukkitForwardListener(conf.getInt("rateLimitInterval").longValue()
++                        , conf.getInt("additionalPeriod").longValue()
++                        , conf.getDouble("similarity_level"))
++                        , this
++        );
++        getLogger().info("初期化完了。");
++
++        instance = this;
++    }
++
++    public static JavaPlugin getInstance() {
++        return instance;
++    }
++}
+Index: src/main/java/megawave/antispam/player/BukkitAPlayerImp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/player/BukkitAPlayerImp.java b/src/main/java/megawave/antispam/player/BukkitAPlayerImp.java
+new file mode 100644
+--- /dev/null	(date 1695904739289)
++++ b/src/main/java/megawave/antispam/player/BukkitAPlayerImp.java	(date 1695904739289)
+@@ -0,0 +1,32 @@
++package megawave.antispam.player;
++
++import java.util.UUID;
++
++public class BukkitAPlayerImp extends BukkitAPlayer {
++
++    public BukkitAPlayerImp(UUID uuid) {
++        super(uuid);
++
++    }
++
++    @Override
++    public void sendMessage(String message) {
++        player.sendMessage(message);
++
++    }
++
++    @Override
++    public String getName() {
++        return player.getName();
++    }
++
++    @Override
++    public void kick(String reason) {
++        player.kickPlayer(reason);
++    }
++
++    public static BukkitAPlayer getBukkitAPlayer(UUID uuid) {
++        return new BukkitAPlayerImp(uuid);
++    }
++
++}
+Index: src/main/java/megawave/antispam/Wrap.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/Wrap.java b/src/main/java/megawave/antispam/Wrap.java
+new file mode 100644
+--- /dev/null	(date 1695836798899)
++++ b/src/main/java/megawave/antispam/Wrap.java	(date 1695836798899)
+@@ -0,0 +1,38 @@
++package megawave.antispam;
++
++public class Wrap<X extends Iterable, Y extends Number, Z extends Number> {
++    private X x;
++    private Y y;
++    private Z z;
++
++    public Wrap(X x, Y y, Z z) {
++        this.x = x;
++        this.y = y;
++        this.z = z;
++
++    }
++
++    public X getX() {
++        return x;
++    }
++
++    public Y getY() {
++        return y;
++    }
++
++    public Z getZ() {
++        return z;
++    }
++
++    public void setX(X x) {
++        this.x = x;
++    }
++
++    public void setY(Y y) {
++        this.y = y;
++    }
++
++    public void setZ(Z z) {
++        this.z = z;
++    }
++}
+Index: src/main/java/megawave/antispam/player/AP.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/player/AP.java b/src/main/java/megawave/antispam/player/AP.java
+new file mode 100644
+--- /dev/null	(date 1695904739262)
++++ b/src/main/java/megawave/antispam/player/AP.java	(date 1695904739262)
+@@ -0,0 +1,22 @@
++package megawave.antispam.player;
++
++import megawave.antispam.Antispam;
++
++import java.util.UUID;
++
++public interface AP {
++    void sendMessage(String message);
++
++    static APlayer transfer(UUID uuid) {
++        if (Antispam.getServer_type() == Antispam.BUKKIT) {
++            return BukkitAPlayerImp.getBukkitAPlayer(uuid);
++        } else if (Antispam.getServer_type() == Antispam.BUNGEE) {
++            return BungeeAPlayerImp.getBungeeAPlayer(uuid);
++        }else {
++            //TODO CONSOLE
++
++        }
++        return null;
++    }
++
++}
+Index: src/main/java/megawave/antispam/BungeeAntispam.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/megawave/antispam/BungeeAntispam.java b/src/main/java/megawave/antispam/BungeeAntispam.java
+new file mode 100644
+--- /dev/null	(date 1695904319488)
++++ b/src/main/java/megawave/antispam/BungeeAntispam.java	(date 1695904319488)
+@@ -0,0 +1,40 @@
++package megawave.antispam;
++
++import megawave.antispam.configuration.Configuration;
++import megawave.antispam.event.BungeeForwardListener;
++import net.md_5.bungee.api.plugin.Plugin;
++
++import java.io.IOException;
++import java.nio.file.Paths;
++
++public final class BungeeAntispam extends Plugin  {
++    public static Plugin plugin;
++
++    @Override
++    public void onEnable() {
++        super.onEnable();
++        getLogger().info("AntiSpam v1.0 by liboot");
++        getLogger().info("プラグインを初期化中..");
++        Antispam ap = new Antispam(Antispam.BUNGEE);
++        Configuration conf = null;
++        try {
++            conf = ap.config_load(Paths.get("./plugins/AntiSpam/plugin.yml"));
++        } catch (IOException e) {
++            getLogger().severe(e.getMessage());
++        }
++
++        getProxy().getPluginManager().registerListener(
++                this, new BungeeForwardListener(conf.getInt("rateLimitInterval").longValue()
++                        , conf.getInt("additionalPeriod").longValue()
++                        , conf.getDouble("similarity_level"))
++        );
++
++        plugin = this;
++        getLogger().info("初期化完了。");
++    }
++
++    public static Plugin getInstance() {
++        return plugin;
++
++    }
++}

@@ -1,0 +1,3 @@
+rateLimitInterval: 500
+additionalPeriod: 2000
+similarity_level: 0.85

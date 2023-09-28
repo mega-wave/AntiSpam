@@ -16,21 +16,22 @@ public abstract class MessageListener implements Event {
     private final long rateLimitInterval;
     private final long additionalPeriod;
     private final double similarity_level;
+    private final int logs_message;
 
-    public MessageListener(long rateLimitInterval, long additionalPeriod, double similarity_level) {
+    public MessageListener(long rateLimitInterval, long additionalPeriod, double similarity_level, int logs_message) {
         this.rateLimitInterval = rateLimitInterval;
         this.additionalPeriod = additionalPeriod;
         this.similarity_level = similarity_level;
+        this.logs_message = logs_message;
 
     }
-
     public void check(APlayer player, String message) {
         UUID playerId = player.getUniqueId();
-        String playerName = player.getName();
 
         Map<UUID, Wrap<List<String>, Long, Long>> map = Antispam.playerInfo;
+        long currentTime = System.currentTimeMillis();
         if (map.get(playerId) == null) {
-            map.put(playerId, new Wrap<>(new ArrayList<>(), 0L, -1L));
+            map.put(playerId, new Wrap<>(new ArrayList<>(), 0L, 0L));
         }
 
         Wrap<List<String>, Long, Long> wrap = map.get(playerId);
@@ -39,45 +40,38 @@ public abstract class MessageListener implements Event {
         Long playerLastMessageTime = wrap.getY();
         Long playerMessageBlockEndTime = wrap.getZ();
 
-        long currentTime = System.currentTimeMillis();
-
-        if (playerMessageBlockEndTime > currentTime) {
-            player.sendMessage("§4 チャットがブロックされています。");
-            this.setCancelled(true);
-            return;
-        }
-
-        if (playerLastMessageTime != null &&
-                currentTime - playerLastMessageTime < rateLimitInterval) {
+        if(playerLastMessageTime != 0L
+                && currentTime - playerLastMessageTime < rateLimitInterval) {
             player.sendMessage("§4 メッセージを送信する速度が速すぎます。");
-            System.out.printf("%s(%s)はメッセージを連投したため%d秒間投稿をブロックします。%n", playerName, playerId, rateLimitInterval / 1000);
-            this.setCancelled(true);
+            setCancelled(true);
             return;
+
         }
 
         boolean similarMessages = false;
-        for (String str : lastMessages) {
+        for(String str :lastMessages) {
             double similarity = Utility.calculateSimilarity(str, message);
-            if (similarity > similarity_level) {
+            if (100.0D-similarity < similarity_level) {
                 similarMessages = true;
                 break;
             }
         }
 
-        if (similarMessages) {
-            player.sendMessage(String.format("§4 同じメッセージを連続して送信しないでください。%d秒間ブロックされます。", additionalPeriod / 1000));
-            System.out.printf("%s(%s)はおなじメッセージを投稿したため%d秒間投稿をブロックします。", playerName, playerId, additionalPeriod / 1000);
-            this.setCancelled(true);
-            map.put(playerId, new Wrap<>(lastMessages, currentTime + additionalPeriod, playerMessageBlockEndTime));
-            return;
-        }
-
-        if (lastMessages.size() >= 4) {
+        if(lastMessages.size() >= logs_message) {
             lastMessages.remove(0);
         }
+
+        if(similarMessages) {
+            player.sendMessage("§4 同じメッセージを連続して送信しないでください。");
+            setCancelled(true);
+            map.put(playerId, new Wrap<>(lastMessages, currentTime, currentTime + additionalPeriod));
+            return;
+
+        }
+
         lastMessages.add(message);
         map.put(playerId, new Wrap<>(lastMessages, currentTime, playerMessageBlockEndTime));
-
+        setCancelled(false);
     }
 
     @Override

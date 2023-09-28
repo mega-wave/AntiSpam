@@ -27,7 +27,8 @@ public class BukkitAntispam extends JavaPlugin {
         getServer().getPluginManager().registerEvents(
                 new BukkitForwardListener(conf.getInt("rateLimitInterval").longValue()
                         , conf.getInt("additionalPeriod").longValue()
-                        , conf.getDouble("similarity_level"))
+                        , conf.getDouble("similarity_level")
+                        , conf.getInt("logs_message"))
                         , this
         );
         getLogger().info("初期化完了。");

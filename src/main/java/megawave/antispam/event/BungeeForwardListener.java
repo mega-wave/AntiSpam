@@ -8,8 +8,8 @@ import net.md_5.bungee.event.EventHandler;
 
 public class BungeeForwardListener extends MessageListener implements Listener {
 
-    public BungeeForwardListener(long rateLimitInterval, long additionalPeriod, double similarity_level) {
-        super(rateLimitInterval, additionalPeriod, similarity_level);
+    public BungeeForwardListener(long rateLimitInterval, long additionalPeriod, double similarity_level, int logs_message) {
+        super(rateLimitInterval, additionalPeriod, similarity_level, logs_message);
     }
 
     @EventHandler

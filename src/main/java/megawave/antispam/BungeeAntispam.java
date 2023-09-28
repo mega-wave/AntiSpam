@@ -26,7 +26,8 @@ public final class BungeeAntispam extends Plugin  {
         getProxy().getPluginManager().registerListener(
                 this, new BungeeForwardListener(conf.getInt("rateLimitInterval").longValue()
                         , conf.getInt("additionalPeriod").longValue()
-                        , conf.getDouble("similarity_level"))
+                        , conf.getDouble("similarity_level")
+                        , conf.getInt("logs_message"))
         );
 
         plugin = this;

@@ -7,8 +7,8 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class BukkitForwardListener extends MessageListener implements Listener {
 
-    public BukkitForwardListener(long rateLimitInterval, long additionalPeriod, double similarity_level) {
-        super(rateLimitInterval, additionalPeriod, similarity_level);
+    public BukkitForwardListener(long rateLimitInterval, long additionalPeriod, double similarity_level, int logs_message) {
+        super(rateLimitInterval, additionalPeriod, similarity_level, logs_message);
     }
 
     @EventHandler

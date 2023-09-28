@@ -1,4 +1,4 @@
-# *Magawave / Antispam v1.1*
+# *Magawave / Antispam v1.2*
 
 ---
 __AntiSpam plugin for BUKKIT & BUNGEE__

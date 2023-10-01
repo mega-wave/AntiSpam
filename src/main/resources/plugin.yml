@@ -1,4 +1,8 @@
 name: antispam
 main: megawave.antispam.BukkitAntispam
-version: '${project.version}'
-author: megawave
+version: ${project.version}
+author: suzumiya-3, Alefu
+
+commands:
+  antispam:
+    description: Common Command

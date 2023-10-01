@@ -6,6 +6,8 @@ public interface Command {
 
     String getName();
 
+    String getHelp();
+
     boolean execute(APlayer player, String[] args);
 
 }

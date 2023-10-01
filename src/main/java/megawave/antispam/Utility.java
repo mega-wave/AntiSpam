@@ -3,6 +3,9 @@ package megawave.antispam;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Utility {
     public static double calculateSimilarity(String s1, String s2) {
@@ -33,6 +36,13 @@ public class Utility {
         double maxLength = Math.max(lenS1, lenS2);
         double distance = matrix[lenS1][lenS2];
         return (1.0 - distance / maxLength) * 100.0;
+    }
+
+    public static String[] remove(String[] pre, int num) {
+        List<String> lst = new ArrayList<>(Arrays.asList(pre));
+        lst.remove(num);
+        return lst.toArray(new String[0]);
+
     }
 
     public static void write(InputStream is, OutputStream os) throws IOException {

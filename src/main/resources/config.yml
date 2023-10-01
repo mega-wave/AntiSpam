@@ -1,4 +1,8 @@
-rateLimitInterval: 500
+# ja or en
+lang: auto
+rateLimitInterval: 2200
 additionalPeriod: 2000
 similarity_level:  75.0
 logs_message: 4
+ignore_player:
+  - 069a79f4-44e9-4726-a5be-fca90e38aaf5

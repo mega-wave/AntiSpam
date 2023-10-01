@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2d41a708-6f58-4f34-afd7-241136f3b7cf" name="Changes" comment="Version 1.2" />
+    <list default="true" id="2d41a708-6f58-4f34-afd7-241136f3b7cf" name="Changes" comment="Version 1.2">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/antispam.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/megawave/antispam/command/HelpCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/megawave/antispam/command/ReloadCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/megawave/antispam/command/SwitchCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/lang/en.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/lang/ja.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/megawave/antispam/Antispam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/megawave/antispam/Antispam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/megawave/antispam/BukkitAntispam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/megawave/antispam/BukkitAntispam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/megawave/antispam/BungeeAntispam.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/megawave/antispam/BungeeAntispam.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/megawave/antispam/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/megawave/antispam/Utility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/megawave/antispam/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/megawave/antispam/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/megawave/antispam/event/BukkitForwardListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/megawave/antispam/event/BukkitForwardListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/megawave/antispam/event/BungeeForwardListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/megawave/antispam/event/BungeeForwardListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/megawave/antispam/event/MessageListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/megawave/antispam/event/MessageListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,12 +34,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -31,15 +54,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ユーザー/IdeaProjects/AntiSpam2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/ユーザー/IdeaProjects/AntiSpam2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="AntiSpam2" />
@@ -110,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1695922654289</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Version 1.2">
+      <option name="closed" value="true" />
+      <created>1695922702699</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1695922702699</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

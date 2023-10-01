@@ -5,10 +5,12 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
+import java.util.List;
+
 public class BukkitForwardListener extends MessageListener implements Listener {
 
-    public BukkitForwardListener(long rateLimitInterval, long additionalPeriod, double similarity_level, int logs_message) {
-        super(rateLimitInterval, additionalPeriod, similarity_level, logs_message);
+    public BukkitForwardListener(long rateLimitInterval, long additionalPeriod, double similarity_level, int logs_message, List<String> ignore) {
+        super(rateLimitInterval, additionalPeriod, similarity_level, logs_message, ignore);
     }
 
     @EventHandler
